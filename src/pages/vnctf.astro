@@ -1,0 +1,20 @@
+---
+import LayoutPage from "@/layouts/LayoutPage.astro";
+import Page from "@/components/Page.astro";
+import { parsedSiteConfig } from "@/site-config";
+
+const conf = await parsedSiteConfig.page.vnctf;
+const doc_title = [conf.title, await parsedSiteConfig.title].filter(Boolean).join(" | ");
+---
+
+<LayoutPage title={doc_title} autoHideNav={true} useBg={true} active="vnctf" padTopNav={true}>
+    <Page
+        title={conf.title}
+        subtitle={conf.subtitle}
+        anchor={true}
+        content={conf.content}
+        mdOptions={{ externalLink: true }}
+    />
+</LayoutPage>
+
+<style lang="scss"></style>

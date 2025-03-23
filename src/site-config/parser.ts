@@ -73,6 +73,27 @@ export const SiteConfigParser = {
                     }
                 }
             )
+        },
+
+        "vnctf": async (sc: SiteConfig) => {
+            let conf = sc.page.vnctf ?? { content: "" }
+            return await autoGetConfig(
+                conf,
+                async (f, _, { Markdown },) => {
+                    const data = Markdown.parse(f);
+                    if (Markdown.isYamlRecord(data.frontmatter)) {
+                        return {
+                            title: data.frontmatter["title"] ? data.frontmatter["title"].toString() : undefined,
+                            subtitle: data.frontmatter["subtitle"] ? data.frontmatter["subtitle"].toString() : undefined,
+                            content: data.content
+                        };
+                    } else {
+                        return {
+                            content: data.content
+                        };
+                    }
+                }
+            )
         }
     }
 }
