@@ -14,7 +14,7 @@ const doc_title = [conf.title, await psc.title].filter(Boolean).join(" | ");
     <Page title={conf.title} subtitle={conf.subtitle} anchor={true} mdOptions={{ externalLink: true }}>
         <div class="member-box">
             {
-                conf.content.filter(m => m.status === "active").map(m => (
+                conf.content.filter(m => m.status === "former").map(m => (
                     <PersonInfoCard
                         class="member-card"
                         avatar={m.avatar}
@@ -29,8 +29,8 @@ const doc_title = [conf.title, await psc.title].filter(Boolean).join(" | ");
                 ))
             }
         </div>
-        <div class="see-former-members">
-            <p><a href="/member-former">See former members</a></p>
+        <div class="see-active-members">
+            <p><a href="/member">See active members</a></p>
         </div>
     </Page>
 </Layout>
@@ -47,7 +47,7 @@ const doc_title = [conf.title, await psc.title].filter(Boolean).join(" | ");
             min-width: fit-content;
         }
     }
-    .see-former-members {
+    .see-active-members {
         text-align: center;
         margin-top: 2em;
         p {

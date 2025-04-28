@@ -27,6 +27,10 @@ interface Props extends HTMLAttributes<"div"> {
      * Make the card clickable (pointer cursor, and open link in new tab)
      */
     cardClickable?: boolean;
+    /**
+     * Status of the member (active or former)
+     */
+    status?: "active" | "former";
 }
 
 const {
@@ -38,6 +42,7 @@ const {
     hideLinkTag = false,
     hoverable = false,
     cardClickable = false,
+    status = "active",
     ...rest
 } = Astro.props;
 
@@ -50,6 +55,7 @@ const descriptionHtml = md.render(description);
     data-card="person-info"
     data-clickable={cardClickable}
     data-click-visit={link}
+    data-status={status}
     {...rest}
 >
     <div class="card-avatar">
