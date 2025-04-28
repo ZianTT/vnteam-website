@@ -18,6 +18,10 @@ content:
   - id: vnctf
     text: VNCTF
     link: /vnctf
+  - id: blog
+    text: Blog
+    link: https://blog.vnteam.cn
+    target: _blank
 icon:
   - icon: ":github:"
     link: https://github.com/vn-sec/vn-website
